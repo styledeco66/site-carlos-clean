@@ -1,0 +1,302 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- SEO de base (sera mis à jour par config.js + app.js) -->
+  <title>AE Mateus da Silva | Placo, parquet et maçonnerie à Château-Thierry, Condé-en-Brie et alentours</title>
+  <meta name="description" content="Travaux de placo, parquet, maçonnerie, peinture, carrelage, réagréage, pose de cuisine et dressing à Château-Thierry, Condé-en-Brie, Essômes-sur-Marne, Étampes-sur-Marne, Nogentel, Chierry et communes voisines. Devis gratuit, intervention rapide." />
+  <link rel="canonical" href="/" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="AE Mateus da Silva | Placo, parquet et maçonnerie à Château-Thierry, Condé-en-Brie et alentours" />
+  <meta property="og:description" content="Travaux de placo, parquet, maçonnerie, peinture, carrelage, réagréage, pose de cuisine et dressing à Château-Thierry, Condé-en-Brie, Essômes-sur-Marne, Étampes-sur-Marne, Nogentel, Chierry et communes voisines. Devis gratuit, intervention rapide." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons (optionnel : si tu ajoutes un favicon plus tard) -->
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <img id="logoImg" class="brand__logo hidden" src="assets/images/logo.svg" alt="Logo" />
+      </a>
+      <div class="topbar__right">
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="#services">Services</a>
+          <a href="#realisations">R&eacute;alisations</a>
+          <a href="#avis">Avis</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="topbar__actions" aria-label="Actions rapides">
+          <a class="btn btn--dark topbar__btn" id="headerCallBtn" href="tel:+33412345678">Appeler</a>
+          <button class="btn btn--gold topbar__btn" id="headerQuoteBtn" type="button">Demande de devis</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="hero__bg" id="heroBg" role="img" aria-label="Image principale"></div>
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__content">
+        <div class="hero__left">
+          <h1 class="hero__title" id="heroTitle">Votre Expert</h1>
+          <p class="hero__subtitle" id="heroSubtitle">Professionnel & Réactif</p>
+
+          <a class="btn btn--gold hero__btn" id="heroServicesBtn" href="tel:+33412345678">Appeler</a>
+          <p class="hero__ctaNote" id="heroCtaNote">Réponse rapide • Devis gratuit</p>
+
+        </div>
+
+        <!-- Contact Card (à droite) -->
+        <aside class="contactCard" aria-label="Contact rapide">
+          <h2 class="contactCard__title" id="contactCardTitle">Contactez-nous</h2>
+
+          <div class="contactCard__row">
+            <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.66-3.09 19.57 19.57 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.2 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.46-1.25a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <a id="phoneLinkTop" href="#">04 12 34 56 78</a>
+          </div>
+
+          <div class="contactCard__row">
+            <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="m22 8-10 6L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <a id="emailLinkTop" href="#">contact@exemple.com</a>
+          </div>
+
+          <div class="contactCard__row">
+            <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+            <a id="addressTop" href="#miniMap">Adresse, Ville</a>
+          </div>
+
+          <button class="btn btn--gold btn--block" id="scrollToFormBtn" type="button">
+            Demande de devis
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section--services" id="services">
+      <div class="container">
+        <h2 class="section__title" id="servicesTitle">Nos Services</h2>
+        <p class="section__intro" id="servicesIntro">
+          Spécialiste en placo, parquet et petits travaux de maçonnerie, nous réalisons des chantiers propres et soignés adaptés à votre logement.
+          De la préparation aux finitions, nous vous accompagnons avec des solutions durables, un devis clair et une intervention réactive.
+        </p>
+        <div class="servicesRow" id="servicesRow">
+          <!-- injecté par app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- R&eacute;alisations -->
+    <section class="section" id="realisations">
+      <div class="container">
+        <h2 class="section__title" id="galleryTitle">Nos R&eacute;alisations</h2>
+        <p class="section__intro" id="galleryIntro">
+          D&eacute;couvrez quelques chantiers r&eacute;alis&eacute;s en placo, parquet et ma&ccedil;onnerie dans le secteur de Ch&acirc;teau-Thierry et Cond&eacute;-en-Brie.
+        </p>
+
+        <div class="galleryGrid" id="galleryGrid" aria-label="Galerie de R&eacute;alisations">
+          <!-- injecté par app.js -->
+        </div>
+
+        <div class="center">
+          <a class="btn btn--dark" id="galleryMoreBtn" href="#contact">Voir plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avis -->
+    <section class="section section--alt" id="avis">
+      <div class="container">
+        <h2 class="section__title" id="testimonialsTitle">Avis de Nos Clients</h2>
+        <p class="section__intro" id="testimonialsIntro">
+          La satisfaction client est notre priorit&eacute;: avis authentiques, travail soign&eacute; et intervention r&eacute;active.
+        </p>
+        <div class="testimonialCard" id="testimonialCard">
+          <div class="testimonialSlide">
+            <div class="avatar">
+              <span class="avatar__initials" aria-hidden="true">ML</span>
+            </div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <p class="quote">“Intervention rapide et chantier propre. Très satisfait du résultat.”</p>
+              <p class="who">— M. Laurent</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact + Form -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section__title" id="contactTitle">Contactez-nous</h2>
+        <p class="section__intro" id="contactIntro">
+          Expliquez votre besoin en quelques lignes, nous vous r&eacute;pondons rapidement avec une solution claire et un devis adapt&eacute;.
+        </p>
+
+        <div class="contactGrid">
+          <div class="formBox" id="formBox">
+            <!-- Netlify Forms -->
+            <form id="contactForm"
+                  name="demande"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  action="/merci.html">
+
+              <input type="hidden" name="form-name" value="demande" />
+              <p class="hidden">
+                <label>Ne pas remplir: <input name="bot-field" /></label>
+              </p>
+
+              <div class="formRow">
+                <label>
+                  <span id="labelName">Votre Nom</span>
+                  <input name="name" id="fName" autocomplete="name" required />
+                </label>
+
+                <label>
+                  <span id="labelPhone">Téléphone</span>
+                  <input name="phone" id="fPhone" autocomplete="tel" required />
+                </label>
+              </div>
+
+              <div class="formRow">
+                <label>
+                  <span id="labelEmail">Votre Email</span>
+                  <input name="email" id="fEmail" type="email" autocomplete="email" required />
+                </label>
+
+                <label>
+                  <span id="labelNeed">Votre demande</span>
+                  <input type="hidden" name="need" id="needInput" required />
+                  <div class="needChoices" id="needChoices" role="radiogroup" aria-label="Votre demande"></div>
+                </label>
+              </div>
+
+              <label>
+                <span id="labelMessage">Message</span>
+                <textarea name="message" id="fMessage" rows="4" placeholder="Expliquez votre demande..." required></textarea>
+              </label>
+
+              <div class="formActions">
+                <button class="btn btn--gold" type="submit" id="submitBtn">Envoyer</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="contactAside" aria-label="Coordonnées rapides">
+            <h3 class="contactAside__title">Informations utiles</h3>
+
+            <div class="contactAside__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.66-3.09 19.57 19.57 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.2 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.46-1.25a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <a id="contactPhoneSide" href="#">06 00 00 00 00</a>
+            </div>
+
+            <div class="contactAside__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="m22 8-10 6L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <a id="contactEmailSide" href="#">contact@exemple.com</a>
+            </div>
+
+            <div class="contactAside__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              <span id="contactAddressSide">Adresse</span>
+            </div>
+
+            <a class="btn btn--gold btn--block contactAside__btn" id="contactCallBtnSide" href="tel:+33600000000">Appeler</a>
+          </aside>
+        </div>
+
+        <div class="contactTrust" aria-label="Informations de confiance">
+          <div class="contactTrust__chips">
+            <span class="contactTrust__chip">Réponse rapide</span>
+            <span class="contactTrust__chip">Devis gratuit</span>
+            <span class="contactTrust__chip">Intervention locale</span>
+          </div>
+          <p class="contactTrust__note">Nous revenons vers vous sous 24h selon disponibilité.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="miniMap">
+      <div class="container">
+        <h2 class="section__title">Nous trouver</h2>
+        <div class="mapSectionGrid">
+          <div class="mapCard">
+            <p class="mapCard__address" id="mapAddressLabel">Adresse</p>
+            <div class="mapFrameWrap" id="mapFrameWrap" aria-live="polite"></div>
+          </div>
+          <div class="contactBox">
+            <div class="contactBox__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              <span id="addressBottom">Adresse</span>
+            </div>
+            <div class="contactBox__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="m22 8-10 6L2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <a id="emailLinkBottom" href="#">contact@exemple.com</a>
+            </div>
+            <div class="contactBox__row">
+              <span class="ico" aria-hidden="true"><svg class="icoSvg" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.66-3.09 19.57 19.57 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.2 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.46-1.25a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <a id="phoneLinkBottom" href="#">04 12 34 56 78</a>
+            </div>
+            <p class="fineprint" id="contactNote">Réponse rapide selon disponibilité.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky CTA mobile (WhatsApp supprimé) -->
+  <div class="stickyCta" role="navigation" aria-label="Actions rapides">
+    <a class="stickyCta__btn stickyCta__btn--call" id="stickyCall" href="#">Appeler</a>
+    <button class="stickyCta__btn stickyCta__btn--quote" id="stickyQuote" type="button">Demande de devis</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>&copy; <span id="year"></span> <span id="footerBrand">Nom de l'entreprise</span></div>
+      <div class="footer__muted">Site vitrine &mdash; contact rapide</div>
+      <div class="footer__links">
+        <a href="legal/mentions-legales.html">Mentions légales</a>
+        <span aria-hidden="true">•</span>
+        <a href="legal/politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts (ordre IMPORTANT) -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Merci â€” Demande envoyÃ©e</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Retour accueil">
+        <div class="brand__logoText">âœ“</div>
+      </a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 style="text-align:center; margin:0 0 10px;">Merci !</h1>
+      <p style="text-align:center; color:var(--muted); margin:0 0 18px;">
+        Votre demande a bien Ã©tÃ© envoyÃ©e. Nous vous recontactons rapidement.
+      </p>
+      <div class="center">
+        <a class="btn btn--gold" href="index.html">Retour au site</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>Â© <span id="year"></span> Site vitrine</div>
+      <div class="footer__muted">Merci</div>
+      <div class="footer__links">
+        <a href="legal/mentions-legales.html">Mentions légales</a>
+        <span aria-hidden="true">•</span>
+        <a href="legal/politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
