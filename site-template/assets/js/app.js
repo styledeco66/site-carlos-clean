@@ -462,6 +462,15 @@
     }
     subjectInput.value = formEmailSubject;
 
+    let nextInput = form.querySelector("input[name='_next']");
+    if (!nextInput) {
+      nextInput = document.createElement("input");
+      nextInput.type = "hidden";
+      nextInput.name = "_next";
+      form.appendChild(nextInput);
+    }
+    nextInput.value = new URL(success, window.location.origin).toString();
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const data = new FormData(form);
@@ -476,10 +485,9 @@
           return;
         }
       } catch (err) {
-        // no-op: fallback below
+        // no-op: handled below
       }
-      // Fallback: standard submit if API response fails.
-      HTMLFormElement.prototype.submit.call(form);
+      window.alert("Une erreur est survenue lors de l'envoi. Merci de réessayer dans quelques instants.");
     });
   }
 
