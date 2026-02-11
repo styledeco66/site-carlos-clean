@@ -145,7 +145,7 @@ window.SITE_CONFIG = {
   seo: {
     title: "AE Mateus da Silva | Placo, parquet et maçonnerie à Château-Thierry, Condé-en-Brie et alentours",
     description: "Travaux de placo, parquet, maçonnerie, peinture, carrelage, réagréage, pose de cuisine et dressing à Château-Thierry, Condé-en-Brie, Essômes-sur-Marne, Étampes-sur-Marne, Nogentel, Chierry et communes voisines. Devis gratuit, intervention rapide.",
-    url: "https://ton-site.netlify.app", // A remplacer dès que le nom de domaine final est connu
+    url: "https://aemateusdasilva.netlify.app",
     ogImage: "assets/images/og-image.webp",
     serviceTypes: [
       "Placo",
