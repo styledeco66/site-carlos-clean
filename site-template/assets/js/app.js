@@ -280,8 +280,40 @@
   galleryGrid.innerHTML = galleryItems.map((g) => `
     <figure class="galleryItem">
       <img src="${escapeAttr(g.image)}" alt="${escapeAttr(g.alt || "Réalisation")}" loading="lazy" decoding="async" fetchpriority="low" />
+      <figcaption class="galleryItem__caption">${escapeHtml(g.caption || "")}</figcaption>
     </figure>
   `).join("");
+  const galleryLightbox = $("galleryLightbox");
+  const galleryLightboxImg = $("galleryLightboxImg");
+  const galleryLightboxClose = $("galleryLightboxClose");
+  const openLightbox = (src, alt) => {
+    if (!galleryLightbox || !galleryLightboxImg) return;
+    galleryLightboxImg.src = src;
+    galleryLightboxImg.alt = alt || "Agrandissement de la réalisation";
+    galleryLightbox.classList.remove("hidden");
+    document.body.classList.add("lightbox-open");
+  };
+  const closeLightbox = () => {
+    if (!galleryLightbox || !galleryLightboxImg) return;
+    galleryLightbox.classList.add("hidden");
+    galleryLightboxImg.src = "";
+    galleryLightboxImg.alt = "";
+    document.body.classList.remove("lightbox-open");
+  };
+  galleryGrid.addEventListener("click", (e) => {
+    const img = e.target.closest(".galleryItem img");
+    if (!img) return;
+    openLightbox(img.currentSrc || img.src, img.alt);
+  });
+  if (galleryLightboxClose) galleryLightboxClose.addEventListener("click", closeLightbox);
+  if (galleryLightbox) {
+    galleryLightbox.addEventListener("click", (e) => {
+      if (e.target === galleryLightbox) closeLightbox();
+    });
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
 
   // Testimonials slider
   $("testimonialsTitle").textContent = C.content?.testimonials?.title || "Avis de Nos Clients";
@@ -390,8 +422,66 @@
   form.setAttribute("name", formName);
   form.querySelector("input[name='form-name']").value = formName;
 
+  const formProvider = String(C.form?.provider || "netlify").toLowerCase();
+  const formEndpoint = String(C.form?.endpoint || "").trim();
+  const formEmailSubject = C.form?.emailSubject || "Message site internet - Nouveau devis";
   const success = C.form?.successRedirect || "/merci.html";
   form.setAttribute("action", success);
+  const isNetlifyRuntime = /\.netlify\.app$/i.test(window.location.hostname);
+
+  // Avoid POST errors on non-Netlify hosting when Netlify Forms is still configured.
+  if (formProvider === "netlify" && !isNetlifyRuntime) {
+    form.removeAttribute("data-netlify");
+    form.removeAttribute("netlify-honeypot");
+    const formNameInput = form.querySelector("input[name='form-name']");
+    if (formNameInput) formNameInput.disabled = true;
+    const botFieldInput = form.querySelector("input[name='bot-field']");
+    if (botFieldInput) botFieldInput.disabled = true;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      window.location.href = success;
+    });
+  }
+
+  if (formProvider === "formspree" && formEndpoint) {
+    form.setAttribute("action", formEndpoint);
+    form.removeAttribute("data-netlify");
+    form.removeAttribute("netlify-honeypot");
+
+    const formNameInput = form.querySelector("input[name='form-name']");
+    if (formNameInput) formNameInput.disabled = true;
+    const botFieldInput = form.querySelector("input[name='bot-field']");
+    if (botFieldInput) botFieldInput.disabled = true;
+
+    let subjectInput = form.querySelector("input[name='_subject']");
+    if (!subjectInput) {
+      subjectInput = document.createElement("input");
+      subjectInput.type = "hidden";
+      subjectInput.name = "_subject";
+      form.appendChild(subjectInput);
+    }
+    subjectInput.value = formEmailSubject;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(formEndpoint, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+        if (res.ok) {
+          window.location.href = success;
+          return;
+        }
+      } catch (err) {
+        // no-op: fallback below
+      }
+      // Fallback: standard submit if API response fails.
+      HTMLFormElement.prototype.submit.call(form);
+    });
+  }
 
   const labels = C.form?.labels || {};
   if ($("labelName")) $("labelName").textContent = labels.name || "Votre Nom";

@@ -74,9 +74,9 @@ window.SITE_CONFIG = {
     gallery: {
       title: "Nos R\u00E9alisations",
       items: [
-        { image: "assets/images/real-1.jpg", alt: "R\u00E9alisation 1" },
-        { image: "assets/images/real-2.jpg", alt: "R\u00E9alisation 2" },
-        { image: "assets/images/real-3.jpg", alt: "R\u00E9alisation 3" },
+        { image: "assets/images/real-new-1.webp", alt: "R\u00E9alisation parquet", caption: "Pose de parquet soign\u00E9e, finitions nettes et rendu durable." },
+        { image: "assets/images/real-new-2.webp", alt: "R\u00E9alisation cuisine", caption: "Cuisine mont\u00E9e avec pr\u00E9cision, proprement et pr\u00EAte \u00E0 l\u2019usage." },
+        { image: "assets/images/real-new-3.webp", alt: "R\u00E9alisation placo", caption: "Cloisons en placo solides, align\u00E9es et pr\u00EAtes \u00E0 peindre." },
       ],
       moreButtonText: "Voir plus",
     },
@@ -114,6 +114,13 @@ window.SITE_CONFIG = {
 
   // Formulaire (remplace WhatsApp)
   form: {
+    // Provider: "netlify" (actuel) ou "formspree" (Cloudflare-friendly)
+    provider: "formspree",
+    // URL Formspree (ex: https://formspree.io/f/xxxxxx) quand tu migreras
+    endpoint: "https://formspree.io/f/xqededro",
+    // Objet lisible côté réception email
+    emailSubject: "Message site internet - Nouveau devis",
+
     // Netlify Forms : nom du formulaire
     name: "demande",
 
