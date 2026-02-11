@@ -416,80 +416,11 @@
     window.addEventListener("beforeunload", () => window.clearInterval(testimonialTimer), { once: true });
   }
 
-  // Form: set name + redirect + labels + options
+  // Form: set name + labels + options (Netlify native submit)
   const form = $("contactForm");
   const formName = C.form?.name || "demande";
   form.setAttribute("name", formName);
   form.querySelector("input[name='form-name']").value = formName;
-
-  const formProvider = String(C.form?.provider || "netlify").toLowerCase();
-  const formEndpoint = String(C.form?.endpoint || "").trim();
-  const formEmailSubject = C.form?.emailSubject || "Message site internet - Nouveau devis";
-  const success = C.form?.successRedirect || "/merci.html";
-  form.setAttribute("action", success);
-  const isNetlifyRuntime = /\.netlify\.app$/i.test(window.location.hostname);
-
-  // Avoid POST errors on non-Netlify hosting when Netlify Forms is still configured.
-  if (formProvider === "netlify" && !isNetlifyRuntime) {
-    form.removeAttribute("data-netlify");
-    form.removeAttribute("netlify-honeypot");
-    const formNameInput = form.querySelector("input[name='form-name']");
-    if (formNameInput) formNameInput.disabled = true;
-    const botFieldInput = form.querySelector("input[name='bot-field']");
-    if (botFieldInput) botFieldInput.disabled = true;
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      window.location.href = success;
-    });
-  }
-
-  if (formProvider === "formspree" && formEndpoint) {
-    form.setAttribute("action", formEndpoint);
-    form.removeAttribute("data-netlify");
-    form.removeAttribute("netlify-honeypot");
-
-    const formNameInput = form.querySelector("input[name='form-name']");
-    if (formNameInput) formNameInput.disabled = true;
-    const botFieldInput = form.querySelector("input[name='bot-field']");
-    if (botFieldInput) botFieldInput.disabled = true;
-
-    let subjectInput = form.querySelector("input[name='_subject']");
-    if (!subjectInput) {
-      subjectInput = document.createElement("input");
-      subjectInput.type = "hidden";
-      subjectInput.name = "_subject";
-      form.appendChild(subjectInput);
-    }
-    subjectInput.value = formEmailSubject;
-
-    let nextInput = form.querySelector("input[name='_next']");
-    if (!nextInput) {
-      nextInput = document.createElement("input");
-      nextInput.type = "hidden";
-      nextInput.name = "_next";
-      form.appendChild(nextInput);
-    }
-    nextInput.value = new URL(success, window.location.origin).toString();
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const res = await fetch(formEndpoint, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-        if (res.ok) {
-          window.location.href = success;
-          return;
-        }
-      } catch (err) {
-        // no-op: handled below
-      }
-      window.alert("Une erreur est survenue lors de l'envoi. Merci de réessayer dans quelques instants.");
-    });
-  }
 
   const labels = C.form?.labels || {};
   if ($("labelName")) $("labelName").textContent = labels.name || "Votre Nom";

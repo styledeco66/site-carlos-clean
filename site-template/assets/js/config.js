@@ -114,12 +114,7 @@ window.SITE_CONFIG = {
 
   // Formulaire (remplace WhatsApp)
   form: {
-    // Provider: "netlify" (actuel) ou "formspree" (Cloudflare-friendly)
-    provider: "formspree",
-    // URL Formspree (ex: https://formspree.io/f/xxxxxx) quand tu migreras
-    endpoint: "https://formspree.io/f/xqededro",
-    // Objet lisible côté réception email
-    emailSubject: "Message site internet - Nouveau devis",
+    provider: "netlify",
 
     // Netlify Forms : nom du formulaire
     name: "demande",
